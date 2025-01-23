@@ -30,7 +30,9 @@ const getVideoDetails = (video) => {
 };
 
 loginUser("felipe@gmail.com", "1234567")
-  .then((user) => getUserVideos(user.email))
+  .then((user) => {
+    return getUserVideos(user.email)
+  })
   .then((videos) => getVideoDetails(videos[0]))
   .then((videoDetails) => console.log({ videoDetails }))
   .catch((error) => console.log({ error }));
